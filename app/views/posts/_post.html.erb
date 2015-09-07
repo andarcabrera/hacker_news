@@ -1,0 +1,10 @@
+<article id="<%= @post.id %>">
+    <a href='/posts/<%= @post.id %>/vote' class="fa fa-sort-desc vote-button"></a>
+    <h2><a href='/posts/<%= @post.id %>'><%= @post.title %></a></h2>
+    <p>
+    <span class='username'><a href='/users/:id'><%= @post.author.username %></a></span>
+    <span class='timestamp'><%= @post.created_at %></span>
+    <span class='comment-count'><%= @post.comments.count %></span>
+    </p>
+</article>
+<div class="delete-button"><%= link_to "delete", post_path, method: :delete %></div>

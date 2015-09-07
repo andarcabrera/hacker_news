@@ -1,0 +1,7 @@
+<%= form_tag(post_path, method: "put") do %>
+  <%= label_tag(:title, "Title:") %>
+  <%= text_field_tag("post[title]", @post.title) %>
+  <%= label_tag(:body, "Body:") %>
+  <%= text_area_tag("post[body]", @post.body, size: "44x26") %>
+  <%= submit_tag("Update Post") %>
+<% end %>

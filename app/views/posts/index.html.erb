@@ -1,8 +1,18 @@
-<div class="container">
+<div class="post-container">
   <% @posts.each do |post| %>
-    <ul>
-      <li><a href="/posts/<%=post.id %>"><%= post.title %></li>
-    </ul>
-  <% end %>
-  <a href="/posts/new">Create a post</a>
+      <article id="<%= post.id %>">
+        <a href='/posts/<%= post.id %>/vote' class="fa fa-sort-desc vote-button"></a>
+        <h2><a href='<%=post_path(post)%>'><%= post.title %></a></h2>
+        <p>
+        <span class='username'><a href='<%=user_path(post.author)%>'><%= post.author.username %></a></span>
+        <span class='comment-count'><%= post.comments.count %></span>
+        <% if session_user && session_user_id == post.author.id %>
+        <span class="edit"><%= link_to "edit", edit_post_path(post), method: :get %></span>
+        <span class="delete"><%= link_to "delete", post_path(post), method: :delete %></span>
+        <% end %>
+        </p>
+    </article>
+   <% end %>
+
+    <div id="new-post-button>"><%= link_to "Create Post", new_post_path %></div>
 </div>

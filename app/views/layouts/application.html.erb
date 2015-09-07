@@ -3,11 +3,27 @@
 <head>
   <title>HackerNews</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header>
+  <h1><a href="/">Hacker News</a></h1>
+  <p>
+    <a href="#posts">new</a>
+    <a href="#">comments</a>
+    <a href="#">popular</a>
+    <p id="login">
+    <% if session[:user_id] %>
+      <%= link_to("Logout", logout_path, method: :delete)  %>
+    <% else %>
+    <%= link_to("Login", login_path)  %>
+    </p>
+    <% end %>
+  </p>
+</header>
 <%= yield %>
 
 </body>
