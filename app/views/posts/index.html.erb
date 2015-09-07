@@ -1,0 +1,8 @@
+<div class="container">
+  <% @posts.each do |post| %>
+    <ul>
+      <li><a href="/posts/<%=post.id %>"><%= post.title %></li>
+    </ul>
+  <% end %>
+  <a href="/posts/new">Create a post</a>
+</div>
