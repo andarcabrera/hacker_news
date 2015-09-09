@@ -10,6 +10,16 @@ Rails.application.routes.draw do
   resources :users
   resources :comments
 
+  # get '/posts' => 'posts#index'
+  # get '/posts/:id' => 'posts#show'
+  # get '/posts/new' => 'posts#new'
+  # post '/posts' => 'posts#create'
+  # get '/posts/:id/edit' => 'posts#edit'
+  # put '/posts/:id' => 'posts#update'
+  # delete '/posts/:id' => 'posts#destroy'
+
+  get '/users/:id' => 'users#show'
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'

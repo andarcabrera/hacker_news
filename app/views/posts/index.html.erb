@@ -2,7 +2,7 @@
   <% @posts.each do |post| %>
       <article id="<%= post.id %>">
         <a href='/posts/<%= post.id %>/vote' class="fa fa-sort-desc vote-button"></a>
-        <h2><a href='<%=post_path(post)%>'><%= post.title %></a></h2>
+        <h2> <%= link_to post.title, posts_path(post) %> </h2>
         <p>
         <span class='username'><a href='<%=user_path(post.author)%>'><%= post.author.username %></a></span>
         <span class='comment-count'><%= post.comments.count %></span>
